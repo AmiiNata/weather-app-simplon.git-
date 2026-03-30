@@ -22,26 +22,24 @@ Check the current weather on any city on the planet. Switch between metric and i
 
 ## Installation
 
-1. `git clone https://github.com/madzadev/weather-app.git`
+1. `git clone https://github.com/AmiiNata/weather-app-simplon.git-/`
 
-2. `cd weather-app`
+2. `cd weather-app-simplon.git-`
 
 3. `npm install`
 
-4. Log-in to [Openweathermap.com](https://openweathermap.org/)
+4. `npm run dev`
 
-5. Create an API key
 
-6. `cp .env.example .env.local`
+## Conclusion 
 
-7. Paste API key for `OPENWEATHER_API_KEY`
+- la clé est en dure dans data.js
+- le fichier config.json dans le dossier public pour initaliser la ville à nantes en cas de bug
+- la clé crée est : aaeebaa66b6b1d130f706da87d587364
 
-8. `npm run dev`
+## Blocages et solutions 
 
-## Contributions
+1- incompatibilité de mon OS linux mint avec le projet => passage sur ubuntu
+2- blocage de GitHub lors du push à cause de la détection automatique de la clé => j'ai forcé le passage avec 'push declined due to repository rule violations' 
+Je comprends donc pourquoi il fallait passer par des variables d'environnement .env
 
-Any feature requests and pull requests are welcome!
-
-## License
-
-The project is under [MIT license](https://choosealicense.com/licenses/mit/).
