@@ -13,11 +13,12 @@ import { ErrorScreen } from "../components/ErrorScreen";
 import styles from "../styles/Home.module.css";
 
 export const App = () => {
-  const [cityInput, setCityInput] = useState("Riga");
+  const [cityInput, setCityInput] = useState("Nantes");
   const [triggerFetch, setTriggerFetch] = useState(true);
   const [weatherData, setWeatherData] = useState();
   const [unitSystem, setUnitSystem] = useState("metric");
 
+/*
   useEffect(() => {
     const getData = async () => {
       const res = await fetch("api/data", {
@@ -31,6 +32,34 @@ export const App = () => {
     };
     getData();
   }, [triggerFetch]);
+  */
+
+
+  useEffect(() => {
+  const getData = async () => {
+    const res = await fetch("api/data", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ cityInput }),
+    });
+    const data = await res.json();
+    setWeatherData({ ...data });
+    setCityInput("");
+  };
+
+  // faire appel au montage du composant
+  getData();
+
+  // rafraîchissement toutes les heures (3600000 ms)
+  const timer = setInterval(() => {
+    console.log("Rafraîchissement automatique...");
+    getData();
+  }, 3600000);
+
+  //Nettoyage du timer si on quitte la page
+  return () => clearInterval(timer);
+
+}, [triggerFetch]); // Se relance si triggerFetch change
 
   const changeSystem = () =>
     unitSystem == "metric"
