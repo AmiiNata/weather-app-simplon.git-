@@ -40,6 +40,7 @@ Check the current weather on any city on the planet. Switch between metric and i
 ## Blocages et solutions 
 
 1- incompatibilité de mon OS linux mint avec le projet => passage sur ubuntu
+
 2- blocage de GitHub lors du push à cause de la détection automatique de la clé => j'ai forcé le passage avec 'push declined due to repository rule violations' 
 Je comprends donc pourquoi il fallait passer par des variables d'environnement .env
 
